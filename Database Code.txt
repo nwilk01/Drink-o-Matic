@@ -1,0 +1,1 @@
+CREATE TABLE Users(Pin char(4) NOT NULL, Lname varchar(32) NOT NULL, Fname varchar(32) NOT NULL, DrinkHistory TEXT, Tab double NOT NULL PRIMARY KEY(PIN))
