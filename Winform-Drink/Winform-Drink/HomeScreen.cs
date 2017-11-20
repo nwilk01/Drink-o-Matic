@@ -14,15 +14,33 @@ namespace Winform_Drink
 {
     public partial class HomeScreen : Form
     {
+        string ID;
         public HomeScreen(string pin)
         {
             InitializeComponent();
+            initializeUser(pin);
             getUserInfo(pin);
+        }
+
+        private void initializeUser(string pin)
+        {
+            string query = "SELECT Pay_ID FROM Users WHERE Pin = '" + pin + "';";            
+            DataTable info = new DataTable();
+            var connection = ConnectionFactory.Create();
+            MySqlDataAdapter datacmd = new MySqlDataAdapter(query, connection);
+            datacmd.Fill(info);
+            connection.Close();
+
+            for (int i = 0; i < info.Rows.Count; i++)
+            {
+                DataRow row = info.Rows[i];
+                ID = row["Pay_ID"].ToString();
+            }
         }
 
         private void getUserInfo(string pin)
         {
-            string query = "SELECT Fname, Lname FROM Users WHERE Pin = '" + pin + "';";
+            string query = "SELECT Fname, Lname FROM Payment WHERE ID = (SELECT Pay_ID FROM Users WHERE Pin = '" + pin + "');";
             DataTable info = new DataTable();
             var connection = ConnectionFactory.Create();
             MySqlDataAdapter datacmd = new MySqlDataAdapter(query, connection);
@@ -38,7 +56,7 @@ namespace Winform_Drink
 
         private void userbtn_Click(object sender, EventArgs e)
         {
-            UserTab user = new UserTab();
+            UserTab user = new UserTab(ID);
             this.Hide();
             var display = user.ShowDialog();
         }

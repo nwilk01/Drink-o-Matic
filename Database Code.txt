@@ -1,1 +1,3 @@
-CREATE TABLE Users(Pin char(4) NOT NULL, Lname varchar(32) NOT NULL, Fname varchar(32) NOT NULL, DrinkHistory TEXT, Tab double NOT NULL PRIMARY KEY(PIN))
+CREATE TABLE Payment(ID int AUTO_INCREMENT, Lname varchar(32) NOT NULL, Fname varchar(32) NOT NULL, CC nvarchar(17) NOT NULL, EXP char(4), PRIMARY KEY(ID), Foreign Key )
+
+CREATE TABLE Users(Pin char(4) NOT NULL, DrinkHistory TEXT, Tab double NOT NULL, Pay_ID int NOT NULL, PRIMARY KEY(Pin), FOREIGN KEY(Pay_ID) REFERENCES Payment(ID)) 
