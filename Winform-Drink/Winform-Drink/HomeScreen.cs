@@ -60,5 +60,12 @@ namespace Winform_Drink
             this.Hide();
             var display = user.ShowDialog();
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            SearchFor user = new SearchFor(ID);
+            this.Hide();
+            var display = user.ShowDialog();
+        }
     }
 }

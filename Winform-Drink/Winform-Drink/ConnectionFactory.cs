@@ -16,7 +16,9 @@ namespace Winform_Drink
         public static MySqlConnection Create()
         {
             MySqlConnection connection;
+
             
+
 
             string connectionString = @"server=" + server + ";" + "UID=" + user + ";" + "password=" + password + ";" + "database=" + database + ";";
             connection = new MySqlConnection(connectionString);

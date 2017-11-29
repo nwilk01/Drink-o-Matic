@@ -33,27 +33,29 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.history = new System.Windows.Forms.ListView();
+            this.DrinkHistory = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.button1 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // username
             // 
-            this.username.Font = new System.Drawing.Font("Microsoft Sans Serif", 40F);
-            this.username.Location = new System.Drawing.Point(247, 26);
+            this.username.Font = new System.Drawing.Font("Microsoft Sans Serif", 30F);
+            this.username.Location = new System.Drawing.Point(240, 34);
             this.username.Multiline = true;
             this.username.Name = "username";
             this.username.ReadOnly = true;
-            this.username.Size = new System.Drawing.Size(461, 70);
+            this.username.Size = new System.Drawing.Size(461, 62);
             this.username.TabIndex = 0;
-            this.username.Text = "Nathan Wilk";
+            this.username.Text = "Joseph Szczechowicz";
             // 
             // tab
             // 
-            this.tab.Font = new System.Drawing.Font("Microsoft Sans Serif", 40F);
-            this.tab.Location = new System.Drawing.Point(240, 125);
+            this.tab.Font = new System.Drawing.Font("Microsoft Sans Serif", 30F);
+            this.tab.Location = new System.Drawing.Point(240, 129);
             this.tab.Multiline = true;
             this.tab.Name = "tab";
             this.tab.ReadOnly = true;
-            this.tab.Size = new System.Drawing.Size(247, 71);
+            this.tab.Size = new System.Drawing.Size(247, 54);
             this.tab.TabIndex = 1;
             this.tab.Text = "$1000.67";
             // 
@@ -79,17 +81,37 @@
             // 
             // history
             // 
+            this.history.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.DrinkHistory});
+            this.history.Font = new System.Drawing.Font("Microsoft Sans Serif", 25F);
             this.history.Location = new System.Drawing.Point(41, 207);
             this.history.Name = "history";
             this.history.Size = new System.Drawing.Size(667, 382);
             this.history.TabIndex = 4;
             this.history.UseCompatibleStateImageBehavior = false;
             // 
+            // DrinkHistory
+            // 
+            this.DrinkHistory.Text = "Drinks Ordered";
+            this.DrinkHistory.Width = 382;
+            // 
+            // button1
+            // 
+            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
+            this.button1.Location = new System.Drawing.Point(12, 8);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(106, 30);
+            this.button1.TabIndex = 5;
+            this.button1.Text = "Return";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // UserTab
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(735, 601);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.history);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
@@ -109,5 +131,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.ListView history;
+        private System.Windows.Forms.ColumnHeader DrinkHistory;
+        private System.Windows.Forms.Button button1;
     }
 }

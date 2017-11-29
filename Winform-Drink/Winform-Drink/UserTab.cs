@@ -18,6 +18,7 @@ namespace Winform_Drink
         public UserTab(string User_ID)
         {
             InitializeComponent();
+            history.View = View.Details;
             ID = User_ID;
             initializeName();
             initializeTab();
@@ -76,7 +77,7 @@ namespace Winform_Drink
             for (int j = 0; j < drinks.Length; j++)
             {
                 ListViewItem item = new ListViewItem(drinks[j]);
-                item.Font = new System.Drawing.Font("Arial", 12);
+                item.Font = new System.Drawing.Font("Arial", 25);
                 history.Items.Add(item);
             }
         }
@@ -84,6 +85,13 @@ namespace Winform_Drink
         private void history_SelectedIndexChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            HomeScreen home = new HomeScreen(ID);
+            this.Hide();
+            var display = home.ShowDialog();
         }
     }
 }
